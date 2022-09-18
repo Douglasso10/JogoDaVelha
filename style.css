@@ -39,6 +39,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .linha:nth-child(1),
@@ -64,6 +65,33 @@ body{
 .linha:nth-child(9){
     border-bottom: none;
 } 
+
+.linha.x::before,
+.linha.x::after{
+    content: "";
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background:#EAE6E5;
+    position: absolute;
+}
+
+.linha.x::before{
+    transform: rotate(45deg);
+}
+
+.linha.x::after{
+    transform: rotate(-45deg);
+}
+
+.linha.circulo::before,
+.linha.circulo::after{
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px *0.9);
+    background: #8F8073;
+    position: absolute;
+    border-radius: 50%;
+}
 
 .mensagem{
     display: none;
