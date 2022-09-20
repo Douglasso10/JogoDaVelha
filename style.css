@@ -34,6 +34,7 @@ body{
 
 .conteiner.x .linha:not(.x):not(.circulo):hover::after,
 .conteiner.x .linha:not(.x):not(.circulo):hover::before,
+
 .conteiner.circulo .linha:not(.x):not(.circulo):hover::after,
 .conteiner.circulo .linha:not(.x):not(.circulo):hover::before{
     background:  rgba(234, 230, 229, 0.308) !important;
@@ -117,4 +118,34 @@ body{
 
 .mensagem{
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, 0.8);
+    flex-direction: column;
+}
+
+.btn{
+    font-size: 25px;
+    background-color: #8F8073;
+    color: #12130F;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+}
+
+.btn:hover{
+    background-color:#12130F;
+    color:#8F8073 ;
+}
+
+.msg_Txt{
+    color: #8F8073;
+    font-size: 50px;
 }
