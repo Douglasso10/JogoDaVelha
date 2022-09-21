@@ -1,6 +1,15 @@
 const linhasElementos = document.querySelectorAll('[data-linha]');
+const conteiner = document.querySelector('[data-conteiner]');
 
-let vezDoCirculo = false;
+let vezDoCirculo;
+
+const comecarJogo = () => {
+    for (const linha of linhasElementos){
+        linha.addEventListener('click', clicar, {once:true});
+    }
+    vezDoCirculo = false;
+    conteiner.classList.add('x');
+}
 
 const marcando = (linha, adicionar) =>{
     linha.classList.add(adicionar);
@@ -8,6 +17,15 @@ const marcando = (linha, adicionar) =>{
 
 const mudarSimbolo = () =>{
     vezDoCirculo =! vezDoCirculo;
+
+    conteiner.classList.remove('circulo');
+    conteiner.classList.remove('x');
+
+    if(vezDoCirculo){
+        conteiner.classList.add('circulo');
+    } else{
+        conteiner.classList.add('x');
+    }
 }
 
 const clicar = (e) => {
@@ -22,7 +40,5 @@ const clicar = (e) => {
     mudarSimbolo();
 }
 
-for (const linha of linhasElementos){
-    linha.addEventListener('click', clicar, {once:true});
-}
+comecarJogo();
 
