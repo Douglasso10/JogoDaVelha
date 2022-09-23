@@ -23,9 +23,9 @@ const comecarJogo = () => {
 }
 
 const checandoVitoria = (jogadorAtual) => {
-    combinacaoDeVitoria.some(combinacao => {
-        return combinacao.every(index => {
-            return conteiner[index].classList.conteins(jogadorAtual);
+    return combinacaoDeVitoria.some((combinacao) => {
+        return combinacao.every((index) => {
+            return linhasElementos[index].classList.contains(jogadorAtual);
         })
     })
 }
@@ -55,7 +55,7 @@ const clicar = (e) => {
     marcando(linha,adicionar);
 
     // Verificação de vitória
-    const vitoria = checandoVitoria();
+    const vitoria = checandoVitoria(adicionar);
     if(vitoria){
         console.log("ganhei!!")
     }
