@@ -1,5 +1,7 @@
 const linhasElementos = document.querySelectorAll('[data-linha]');
 const conteiner = document.querySelector('[data-conteiner]');
+const mensagem = document.querySelector('[data-mensagem]');
+const mensagemTxt = document.querySelector('[data-mensagem-txt]');
 
 let vezDoCirculo;
 
@@ -20,6 +22,16 @@ const comecarJogo = () => {
     }
     vezDoCirculo = false;
     conteiner.classList.add('x');
+}
+
+const fimDeJogo = (empate) => {
+    if(empate){
+        mensagemTxt.innerText = "Empate";
+    }else{
+        mensagemTxt.innerText = vezDoCirculo ? 'Círculo Venceu!' : 'X Venceu!'
+    }
+
+    mensagem.classList.add('mostrarMensagem')
 }
 
 const checandoVitoria = (jogadorAtual) => {
@@ -57,7 +69,7 @@ const clicar = (e) => {
     // Verificação de vitória
     const vitoria = checandoVitoria(adicionar);
     if(vitoria){
-        console.log("ganhei!!")
+        fimDeJogo(false);
     }
 
     //mudar o simbolo

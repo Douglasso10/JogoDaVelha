@@ -149,3 +149,7 @@ body{
     color: #8F8073;
     font-size: 50px;
 }
+
+.mostrarMensagem{
+    display: flex;
+}
