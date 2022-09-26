@@ -2,6 +2,7 @@ const linhasElementos = document.querySelectorAll('[data-linha]');
 const conteiner = document.querySelector('[data-conteiner]');
 const mensagem = document.querySelector('[data-mensagem]');
 const mensagemTxt = document.querySelector('[data-mensagem-txt]');
+const btn = document.querySelector('[data-btn]')
 
 let vezDoCirculo;
 
@@ -18,10 +19,14 @@ const combinacaoDeVitoria = [
 
 const comecarJogo = () => {
     for (const linha of linhasElementos){
+        linha.classList.remove('circulo');
+        linha.classList.remove('x');
+        linha.removeEventListener('click', clicar);
         linha.addEventListener('click', clicar, {once:true});
     }
     vezDoCirculo = false;
-    conteiner.classList.add('x');
+    focoNoTabuleiro();
+    mensagem.classList.remove('mostrarMensagem');
 }
 
 const fimDeJogo = (empate) => {
@@ -46,9 +51,7 @@ const marcando = (linha, adicionar) =>{
     linha.classList.add(adicionar);
 }
 
-const mudarSimbolo = () =>{
-    vezDoCirculo =! vezDoCirculo;
-
+const focoNoTabuleiro = () =>{
     conteiner.classList.remove('circulo');
     conteiner.classList.remove('x');
 
@@ -57,6 +60,13 @@ const mudarSimbolo = () =>{
     } else{
         conteiner.classList.add('x');
     }
+}
+
+const mudarSimbolo = () =>{
+    vezDoCirculo =! vezDoCirculo;
+
+    focoNoTabuleiro();
+    
 }
 
 const clicar = (e) => {
@@ -79,3 +89,4 @@ const clicar = (e) => {
 
 comecarJogo();
 
+btn.addEventListener('click', comecarJogo);
