@@ -47,6 +47,12 @@ const checandoVitoria = (jogadorAtual) => {
     })
 }
 
+const checandoEmpate = () => {
+    return [...linhasElementos].every (linhas => {
+       return linhas.classList.contains ('x') || linhas.classList.contains('circulo');
+    })
+}
+
 const marcando = (linha, adicionar) =>{
     linha.classList.add(adicionar);
 }
@@ -78,14 +84,24 @@ const clicar = (e) => {
 
     // Verificação de vitória
     const vitoria = checandoVitoria(adicionar);
+    
+    // Checando empate
+    const empate = checandoEmpate();
+    
     if(vitoria){
         fimDeJogo(false);
+    }else if (empate){
+        fimDeJogo(true);
+    }else {
+            //mudar o simbolo
+        mudarSimbolo();
     }
-
-    //mudar o simbolo
-
-    mudarSimbolo();
 }
+
+
+
+
+    
 
 comecarJogo();
 
